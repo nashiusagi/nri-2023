@@ -15,6 +15,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e6%98%8e%e7%a5%9e%e6%b9%af/",
             numUsers: 20,
             imageUrl: "_test_/myojin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 2,
@@ -23,6 +25,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e5%a4%a9%e7%a5%9e%e6%b9%af/",
             numUsers: 4,
             imageUrl: "_test_/tenjin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 3,
@@ -30,7 +34,9 @@ export const sampleRequest = () => {
             body: "入口には大水槽、週1回季節によってレイアウトを変えています。店内はパネルで１つづつブース分けした洗い場もあり、隣の人にお湯がかかる心配がなく、特にお子様連れの方に好評です。お湯は天然黒湯温泉で肌がつるっとすると好評です。",
             link: "https://ota1010.com/explore/%e7%a8%b2%e8%8d%b7%e6%b9%af/",
             numUsers: 0,
-            imageUrl: "_test_/inari.jpg",
+            imageUrl: "https://sento-image-bucket.s3.ap-northeast-1.amazonaws.com/spring-images/INARI-YU.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 1,
@@ -39,6 +45,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e6%98%8e%e7%a5%9e%e6%b9%af/",
             numUsers: 20,
             imageUrl: "_test_/myojin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 2,
@@ -47,6 +55,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e5%a4%a9%e7%a5%9e%e6%b9%af/",
             numUsers: 4,
             imageUrl: "_test_/tenjin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 3,
@@ -55,6 +65,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e7%a8%b2%e8%8d%b7%e6%b9%af/",
             numUsers: 0,
             imageUrl: "_test_/inari.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 1,
@@ -63,6 +75,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e6%98%8e%e7%a5%9e%e6%b9%af/",
             numUsers: 20,
             imageUrl: "_test_/myojin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 2,
@@ -71,6 +85,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e5%a4%a9%e7%a5%9e%e6%b9%af/",
             numUsers: 4,
             imageUrl: "_test_/tenjin.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
           {
             id: 3,
@@ -79,6 +95,8 @@ export const sampleRequest = () => {
             link: "https://ota1010.com/explore/%e7%a8%b2%e8%8d%b7%e6%b9%af/",
             numUsers: 0,
             imageUrl: "_test_/inari.jpg",
+            startTime: "16:00",
+            endTime: "24:00",
           },
         ]),
       );
