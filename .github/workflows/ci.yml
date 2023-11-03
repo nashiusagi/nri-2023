@@ -4,7 +4,7 @@ name: ci
 on:
   push:
     branches:
-      -  feature/**
+      -  develop
 
 env:
   TZ: Asia/Tokyo

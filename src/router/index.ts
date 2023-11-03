@@ -10,6 +10,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/index",
     component: () => import("@/pages/index.vue"),
   },
+  {
+    path: "/crowded",
+    component: () => import("@/pages/crowded.vue"),
+  },
 ];
 
 export const router: Router = createRouter({
