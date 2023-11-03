@@ -1,40 +1,48 @@
-name: ecr push image
-
+name: deploy
 on:
   push:
     branches:
-      - master 
+      - master
+
+env:
+  NODE_VERSION: '18'
+  AWS_REGION: "ap-northeast-1"
+  IAM_ROLE_ARN: ${{ secrets.IAM_ROLE_ARN }}
+  AWS_BUCKET_NAME: "nri-front"
+  CF_DISTRIBUTION_ID: "dwunle1j367fc"
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  push:
+  build:
     runs-on: ubuntu-latest
-    # `permissions` を設定しないと OIDC が使えないので注意
-    permissions:
-      id-token: write
-      contents: read
+
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
-      # AWS 認証
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: "ap-northeast-1"
-          role-to-assume: "arn:aws:iam::304813669994:role/nri-2023-front"
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+        cache-dependency-path: ./package-lock.json
+    - run: yarn install && yarn build:prod
 
-      # ECR ログイン
-      - uses: aws-actions/amazon-ecr-login@v1
-        id: login-ecr # outputs で参照するために id を設定
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: ${{ env.AWS_REGION }}
+        role-to-assume: ${{ env.IAM_ROLE_ARN}}
+  
+    - name: Setup aws cli
+      uses: unfor19/install-aws-cli-action@v1
+      with:
+        version: 2
+        verbose: false
+        arch: amd64
 
-      # Docker イメージを build・push する
-      - name: build and push docker image to ecr
-        env:
-          # ECR レジストリを `aws-actions/amazon-ecr-login` アクションの `outputs.registry` から取得
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          # イメージを push する ECR リポジトリ名
-          REPOSITORY: "nri-2023"
-          # 任意のイメージタグ
-          # 今回は Git のコミットハッシュにしておく
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          docker build . --tag ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
-          docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
+    - name: Upload files to S3 and Clear CF cache
+      run: |
+        aws s3 sync --exact-timestamps --delete ./dist s3://${{ env.AWS_BUCKET_NAME }}/
+        aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRIBUTION_ID }} --paths "/*"
