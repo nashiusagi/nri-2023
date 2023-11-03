@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'yarn'
-        cache-dependency-path: ./package-lock.json
+
     - run: yarn install && yarn build:prod
 
     - name: Configure AWS Credentials
