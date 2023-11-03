@@ -9,7 +9,7 @@ env:
   AWS_REGION: "ap-northeast-1"
   IAM_ROLE_ARN: ${{ secrets.IAM_ROLE_ARN }}
   AWS_BUCKET_NAME: "nri-front"
-  CF_DISTRIBUTION_ID: "dwunle1j367fc"
+  CF_DISTRIBUTION_ID: "ERLUD3JQ6QOS9"
 
 permissions:
   id-token: write
