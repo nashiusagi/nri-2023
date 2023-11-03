@@ -24,7 +24,7 @@ const getColor = (status: number) => {
   return "#c92424"
 }
 
-const ichiban = calcCrowdedStatus(props.bath.numUsers) === 0
+const ichiban = props.bath.is_fastest
 const color = getColor(calcCrowdedStatus(props.bath.numUsers)) 
 </script>
 
