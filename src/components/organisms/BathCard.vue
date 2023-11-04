@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import { Bath } from "@/types/api";
 
-const calcCrowdedStatus = (num: number) => {
-  if(num===0){ 
-    return 0
-  }
-  if(num>5){
-    return 1
-  }if (num>10){ 
-    return 2
-  } 
-    return 3
-  
-}
-
 const props = defineProps<{
   bath: Bath;
 }>();
@@ -24,20 +11,19 @@ const getColor = (status: number) => {
   return "#c92424"
 }
 
-const ichiban = props.bath.is_fastest
-const color = getColor(calcCrowdedStatus(props.bath.numUsers)) 
+const color = getColor(props.bath.mens_congestion_degree) 
 </script>
 
 <template>
-  <div class="ichiban_card" v-if="ichiban">
-    <div>
+  <div class="fastest_card" v-if="bath.is_fastest">
+    <div class="reflection">
       <img :src="bath.imageUrl" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.link" target="_blank" rel="noopener noreferrer">{{ bath.title }}</a>
+      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.body }}
+      {{ bath.introductionText }}
     </div>
   </div>
   <div class="card" v-else>
@@ -45,10 +31,10 @@ const color = getColor(calcCrowdedStatus(props.bath.numUsers))
       <img :src="bath.imageUrl" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.link" target="_blank" rel="noopener noreferrer">{{ bath.title }}</a>
+      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.body }}
+      {{ bath.introductionText }}
     </div>
   </div>
 </template>
@@ -68,7 +54,7 @@ const color = getColor(calcCrowdedStatus(props.bath.numUsers))
   padding: 4px 8px;
 }
 
-.ichiban_card {
+.fastest_card {
   width: 150px;
   height: 150px;
   cursor: pointer;
@@ -108,6 +94,29 @@ const color = getColor(calcCrowdedStatus(props.bath.numUsers))
   display: block;
   height: 100%;
   line-height: 100%;
+}
+
+.reflection{
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+}
+ 
+.reflection:after {
+  content:"";
+  height:100%;
+  width:30px;
+  position:absolute;
+  background-color: #faf1f179;
+  -webkit-transform: rotate(45deg);
+  -webkit-animation: reflection 2s ease-in-out infinite;
+}
+ 
+@keyframes reflection {
+  0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+  80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+  81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+  100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
 }
 
 </style>
