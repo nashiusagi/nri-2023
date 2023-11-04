@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Bath } from "@/types/api";
 
-const props = defineProps<{
+defineProps<{
   bath: Bath;
 }>();
 </script>

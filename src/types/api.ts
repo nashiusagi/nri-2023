@@ -8,7 +8,7 @@ export interface Bath {
   introduction_text: string; // サイトの概要文
   mens_congestion_degree: number; // 男湯混雑段階
   ladies_congestion_degree: number; // 女湯混雑段階
-  is_fastest: boolean; // 一番風呂かどうか
+  is_mens_fastest: boolean; // 一番風呂かどうか
   start_time: string; // 開業時間（1600など）
   end_time: string; // 終業時間
   created_at: Date;
