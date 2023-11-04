@@ -12,6 +12,7 @@ const messageData: BathesData = reactive({
 });
 
 const interval = ref()
+const fetchDate = ref(new Date().toLocaleString({ timeZone: 'Asia/Tokyo' }))
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 const fetch = () => {
@@ -22,6 +23,7 @@ const fetch = () => {
   ).then((res) => {
     messageData.data = res.data.data;
     messageData.isLoaded = true;
+    fetchDate.value = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
   }).catch((e)=>{
     messageData.error = e;
   });
@@ -47,7 +49,18 @@ fetch();
   <main-layout>
     <div>
       <div :class="$style.page_title">
-        <span>混雑状況</span>
+        <div :class="$style.page_title_left">
+          <div>
+            <span>混雑状況</span>
+          </div>
+          <div :class="$style.fetchDate">
+            <span>最終更新：</span>
+            <span>{{ fetchDate }}</span>
+          </div>
+        </div>
+        <div :class="$style.page_title_right">
+          <img src="@/assets/img/legend.png" alt="" />
+        </div>
       </div>
       <div :class="$style.cards" v-if="messageData.data.length!==0">
         <div v-for="bath in messageData.data" :key="bath.id">
@@ -66,12 +79,38 @@ fetch();
 <style module>
 .page_title {
   font-size: 24px;
-  padding: 12px 0;
+  margin: 12px 0;
+  padding-left: 4px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
+
+.page_title_left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fetchDate {
+  font-size: 10px;
+  font-weight: 600;
+  color: #757575;
+  padding-bottom: 4px;
+}
+
+.page_title_right {
+  width: calc(60% - 32px);
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap; /* 折返し指定 */
-  gap: 12px;
+  gap: 18px;
   justify-content: center;
 }
 

@@ -7,11 +7,22 @@ defineProps<{
 </script>
 
 <template>
-  <div class="card fastest_card" v-if="bath.is_mens_fastest">
+  <div class="card closed_card" v-if="!bath.is_opened">
+    <div class="masked">
+      <img :src="bath.image_url" class="image" alt=""/>
+    </div>
+    <div class="name">
+      <a class="closed_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+    </div>
+    <div class="closed">
+      休業中
+    </div>
+  </div>
+  <div class="card fastest_card" v-else-if="bath.is_mens_fastest">
     <div class="reflection">
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
-    <div>
+    <div class="name">
       <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
@@ -22,7 +33,7 @@ defineProps<{
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
-    <div>
+    <div class="name">
       <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
@@ -33,7 +44,7 @@ defineProps<{
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
-    <div>
+    <div class="name">
       <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
@@ -44,7 +55,7 @@ defineProps<{
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
-    <div>
+    <div class="name">
       <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
@@ -56,19 +67,46 @@ defineProps<{
 <style scoped>
 .card {
   width: 150px;
-  height: 150px;
+  height: 200px;
   cursor: pointer;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   text-align: center;
   padding: 4px 8px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.closed_card {
+  border: 4px solid #212121;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.masked {
+  width: 120px;
+  height: 90px;
+  opacity: 0.6;
+}
+
+.closed {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+  padding-top: 2px;
+  padding-right: 4px;
+  transform: rotate(-10deg);
+  font-family: 'Shippori Mincho B1', serif;
+}
+
+.name {
+  height: 32px;
 }
 
 .card_g {
-  border: 4px solid #03ca03;
+  border: solid 4px #03ca03;
 }
 .card_y {
   border: solid 4px #e1d038;
@@ -103,6 +141,14 @@ defineProps<{
 
 .post_link {
   color: #000;
+  font-size: 16px;
+  display: block;
+  height: 100%;
+  line-height: 100%;
+}
+
+.closed_link {
+  color: #d3d3d3;
   font-size: 16px;
   display: block;
   height: 100%;
