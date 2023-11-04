@@ -115,6 +115,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
   -webkit-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  -webkit-backface-visibility: hidden;
 	
 	left: 45%;
 	top: 50%;
@@ -128,7 +129,8 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
   -webkit-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	
+  -webkit-backface-visibility: hidden;
+
 	left: 10%;
 	top: 40%;
 	
@@ -141,6 +143,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
   -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+  -webkit-backface-visibility: hidden;
 	
 	left: 0%;
 	top: 20%;
@@ -154,6 +157,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
   -webkit-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -webkit-backface-visibility: hidden;
 	
 	left: 50%;
 	top: 60%;
@@ -168,6 +172,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 .bubble {
   -webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
+  -webkit-backface-visibility: hidden;
 	border-radius: 50%;
 	
   -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
@@ -189,6 +194,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
+  -webkit-backface-visibility: hidden;
 	border-radius: 50%;
 	
   -webkit-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);

@@ -187,6 +187,7 @@ defineProps<{
   border: 8px solid;
   border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
   animation: 1s rotate linear infinite;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes rotate {
@@ -227,6 +228,7 @@ defineProps<{
   display:inline-block;
   position:relative;
   overflow:hidden;
+  -webkit-backface-visibility: hidden;
 }
  
 .reflection:after {
@@ -237,6 +239,7 @@ defineProps<{
   background-color: #faf1f179;
   -webkit-transform: rotate(45deg);
   -webkit-animation: reflection 2s ease-in-out infinite;
+  -webkit-backface-visibility: hidden;
 }
  
 @keyframes reflection {
