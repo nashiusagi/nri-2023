@@ -3,63 +3,123 @@ import { Bath } from "@/types/api";
 
 defineProps<{
   bath: Bath;
+  showMens: boolean;
 }>();
 </script>
 
 <template>
-  <div class="card closed_card" v-if="!bath.is_opened">
-    <div class="masked">
-      <img :src="bath.image_url" class="image" alt=""/>
+  <div v-if="showMens">
+    <div class="card closed_card" v-if="!bath.is_opened">
+      <div class="masked">
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="closed_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div class="closed">
+        閉館中 
+      </div>
     </div>
-    <div class="name">
-      <a class="closed_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+    <div class="card fastest_card" v-else-if="bath.is_mens_fastest">
+      <div class="reflection">
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
-    <div class="closed">
-      閉館中 
+    <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
+    </div>
+    <div class="card card_y" v-else-if="bath.mens_congestion_degree==1">
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
+    </div>
+    <div class="card card_r" v-else>
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
   </div>
-  <div class="card fastest_card" v-else-if="bath.is_mens_fastest">
-    <div class="reflection">
-      <img :src="bath.image_url" class="image" alt=""/>
+  <div v-else>
+    <div class="card closed_card" v-if="!bath.is_opened">
+      <div class="masked">
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="closed_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div class="closed">
+        閉館中 
+      </div>
     </div>
-    <div class="name">
-      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+    <div class="card fastest_card" v-else-if="bath.is_mens_fastest">
+      <div class="reflection">
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
-    <div :class="$style.explanation">
-      {{ bath.introduction_text }}
+    <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
-  </div>
-  <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
-    <div>
-      <img :src="bath.image_url" class="image" alt=""/>
+    <div class="card card_y" v-else-if="bath.mens_congestion_degree==1">
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
-    <div class="name">
-      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
-    </div>
-    <div :class="$style.explanation">
-      {{ bath.introduction_text }}
-    </div>
-  </div>
-  <div class="card card_y" v-else-if="bath.mens_congestion_degree==1">
-    <div>
-      <img :src="bath.image_url" class="image" alt=""/>
-    </div>
-    <div class="name">
-      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
-    </div>
-    <div :class="$style.explanation">
-      {{ bath.introduction_text }}
-    </div>
-  </div>
-  <div class="card card_r" v-else>
-    <div>
-      <img :src="bath.image_url" class="image" alt=""/>
-    </div>
-    <div class="name">
-      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
-    </div>
-    <div :class="$style.explanation">
-      {{ bath.introduction_text }}
+    <div class="card card_r" v-else>
+      <div>
+        <img :src="bath.image_url" class="image" alt=""/>
+      </div>
+      <div class="name">
+        <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      </div>
+      <div :class="$style.explanation">
+        {{ bath.introduction_text }}
+      </div>
     </div>
   </div>
 </template>
@@ -75,20 +135,27 @@ defineProps<{
   flex-direction: column;
   gap: 8px;
   text-align: center;
-  padding: 4px 8px;
-  border-radius: 20px;
+  padding: 4px 10px;
+  border-radius: 13px;
   background-color: #ffffff;
+
+  img {
+    text-align: center;
+  }
 }
 
 .closed_card {
   border: 4px solid #212121;
   background-color: rgba(0,0,0,0.6);
+
 }
 
 .masked {
   width: 120px;
   height: 90px;
   opacity: 0.6;
+  display:inline-block;
+  justify-content: center;
 }
 
 .closed {
