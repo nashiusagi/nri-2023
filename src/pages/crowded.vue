@@ -12,7 +12,7 @@ const messageData: BathesData = reactive({
 });
 
 const interval = ref()
-const fetchDate = ref(new Date().toLocaleString({ timeZone: 'Asia/Tokyo' }))
+const fetchDate = ref(new Date().toLocaleString("ja-JP-u-ca-japanese", { timeZone: 'Asia/Tokyo' }))
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 const fetch = () => {
@@ -23,9 +23,10 @@ const fetch = () => {
   ).then((res) => {
     messageData.data = res.data.data;
     messageData.isLoaded = true;
-    fetchDate.value = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
+    fetchDate.value = new Date().toLocaleString("ja-JP-u-ca-japanese", { timeZone: 'Asia/Tokyo' });
   }).catch((e)=>{
     messageData.error = e;
+    messageData.data = [];
   });
 }
 
