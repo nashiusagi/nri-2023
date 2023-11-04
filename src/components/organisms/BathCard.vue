@@ -15,7 +15,7 @@ defineProps<{
       <a class="closed_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div class="closed">
-      休業中
+      閉館中 
     </div>
   </div>
   <div class="card fastest_card" v-else-if="bath.is_mens_fastest">

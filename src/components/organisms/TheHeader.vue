@@ -4,7 +4,7 @@
       <img src="@/assets/img/logo.png" alt="logo"/>
     </div>
     <div :class="$style.title">
-      目指せ一番風呂★
+      Today Foolish! 
     </div>
     <div></div>
   </div>
@@ -24,9 +24,17 @@
 }
 
 .title {
+  color: #111;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -14px;
+  right: 0;
+  margin: auto;
+  text-align: center;
   font-size: 32px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  font-weight: 600;
+  font-family: 'Caveat', cursive;
 }
 </style>

@@ -51,7 +51,7 @@ fetch();
     <div>
       <div :class="$style.page_title">
         <div :class="$style.page_title_left">
-          <div>
+          <div :class="$style.page_title_content">
             <span>混雑状況</span>
           </div>
           <div :class="$style.fetchDate">
@@ -92,6 +92,11 @@ fetch();
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.page_title_content {
+  color: #101111;
+  font-weight: bold;
 }
 
 .fetchDate {
