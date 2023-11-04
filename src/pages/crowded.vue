@@ -69,7 +69,7 @@ fetch();
         </div>
       </div>
       <div v-else>
-        <div>
+        <div style="color: #000">
           データの取得に失敗しました
         </div>
       </div>
@@ -79,7 +79,7 @@ fetch();
 
 <style module>
 .page_title {
-  font-size: 24px;
+  font-size: 32px;
   margin: 12px 0;
   padding-left: 4px;
   background-color: #fff;
