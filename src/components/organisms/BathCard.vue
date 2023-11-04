@@ -32,7 +32,7 @@ defineProps<{
       </div>
     </div>
     <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
-      <div>
+      <div class="reflection">
         <img :src="bath.image_url" class="image" alt=""/>
       </div>
       <div class="name">
@@ -145,7 +145,7 @@ defineProps<{
 }
 
 .closed_card {
-  border: 4px solid #212121;
+  border: 6px solid #212121;
   background-color: rgba(0,0,0,0.6);
 
 }
@@ -173,19 +173,20 @@ defineProps<{
 }
 
 .card_g {
-  border: solid 4px #03ca03;
+  border: solid 6px #03ca03;
+  box-shadow: 8px 5px 3px #1c4b00cc;
 }
 .card_y {
-  border: solid 4px #e1d038;
+  border: solid 6px #e1d038;
 }
 .card_r {
-  border: solid 4px #c92424;
+  border: solid 6px #c92424;
 }
 
 .fastest_card {
   border: 8px solid;
   border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
-  animation: 2s rotate linear infinite;
+  animation: 1s rotate linear infinite;
 }
 
 @keyframes rotate {
@@ -248,7 +249,7 @@ defineProps<{
 
 <style module>
 .explanation {
-  color: #707070;
+  color: #404040;
   font-size: 10px;
   white-space: nowrap;
   overflow: hidden;
