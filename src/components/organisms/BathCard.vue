@@ -4,20 +4,18 @@ import { Bath } from "@/types/api";
 const props = defineProps<{
   bath: Bath;
 }>();
-
-console.log(props.bath)
 </script>
 
 <template>
-  <div class="fastest_card" v-if="bath.is_fastest">
+  <div class="fastest_card" v-if="bath.is_mens_fastest">
     <div class="reflection">
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.introductionText }}
+      {{ bath.introduction_text }}
     </div>
   </div>
   <div class="card_g" v-else-if="bath.mens_congestion_degree===0">
@@ -25,10 +23,10 @@ console.log(props.bath)
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.introductionText }}
+      {{ bath.introduction_text }}
     </div>
   </div>
   <div class="card_y" v-else-if="bath.mens_congestion_degree==1">
@@ -36,10 +34,10 @@ console.log(props.bath)
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.introductionText }}
+      {{ bath.introduction_text }}
     </div>
   </div>
   <div class="card_r" v-else>
@@ -47,10 +45,10 @@ console.log(props.bath)
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
-      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+      <a class="post_link" :href="bath.site_url" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
     </div>
     <div :class="$style.explanation">
-      {{ bath.introductionText }}
+      {{ bath.introduction_text }}
     </div>
   </div>
 </template>
@@ -80,7 +78,7 @@ console.log(props.bath)
   gap: 4px;
   text-align: center;
   padding: 4px 8px;
-  border: 2px solid;
+  border: 4px solid;
   border-color: #03ca03;
 }
 .card_y {
@@ -94,7 +92,7 @@ console.log(props.bath)
   gap: 4px;
   text-align: center;
   padding: 4px 8px;
-  border: solid 2px #e1d038;
+  border: solid 4px #e1d038;
 }
 .card_r {
   width: 150px;
@@ -107,7 +105,7 @@ console.log(props.bath)
   gap: 4px;
   text-align: center;
   padding: 4px 8px;
-  border: solid 2px #c92424;
+  border: solid 4px #c92424;
 }
 
 .fastest_card {

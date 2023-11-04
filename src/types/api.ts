@@ -5,7 +5,7 @@ export interface Bath {
   roman: string; // 銭湯名ローマ字名
   image_url: string; // 画像パス
   site_url: string; // サイトのURL
-  introductionText: string; // サイトの概要文
+  introduction_text: string; // サイトの概要文
   mens_congestion_degree: number; // 男湯混雑段階
   ladies_congestion_degree: number; // 女湯混雑段階
   is_fastest: boolean; // 一番風呂かどうか
