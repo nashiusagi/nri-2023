@@ -4,7 +4,7 @@
       <img src="@/assets/img/logo.png" alt="logo"/>
     </div>
     <div :class="$style.title">
-      銭湯（仮）
+      目指せ一番風呂★
     </div>
     <div></div>
   </div>
