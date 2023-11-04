@@ -5,13 +5,7 @@ const props = defineProps<{
   bath: Bath;
 }>();
 
-const getColor = (status: number) => {
-  if (status === 1) return "#03ca03";
-  if (status===2) return "#e1d038";
-  return "#c92424"
-}
-
-const color = getColor(props.bath.mens_congestion_degree) 
+console.log(props.bath)
 </script>
 
 <template>
@@ -26,7 +20,29 @@ const color = getColor(props.bath.mens_congestion_degree)
       {{ bath.introductionText }}
     </div>
   </div>
-  <div class="card" v-else>
+  <div class="card_g" v-else-if="bath.mens_congestion_degree===0">
+    <div>
+      <img :src="bath.image_url" class="image" alt=""/>
+    </div>
+    <div>
+      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+    </div>
+    <div :class="$style.explanation">
+      {{ bath.introductionText }}
+    </div>
+  </div>
+  <div class="card_y" v-else-if="bath.mens_congestion_degree==1">
+    <div>
+      <img :src="bath.image_url" class="image" alt=""/>
+    </div>
+    <div>
+      <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
+    </div>
+    <div :class="$style.explanation">
+      {{ bath.introductionText }}
+    </div>
+  </div>
+  <div class="card_r" v-else>
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
@@ -44,7 +60,6 @@ const color = getColor(props.bath.mens_congestion_degree)
   width: 150px;
   height: 150px;
   cursor: pointer;
-  border: solid 2px v-bind(color);
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -52,6 +67,47 @@ const color = getColor(props.bath.mens_congestion_degree)
   gap: 4px;
   text-align: center;
   padding: 4px 8px;
+}
+
+.card_g {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 4px 8px;
+  border: 2px solid;
+  border-color: #03ca03;
+}
+.card_y {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 4px 8px;
+  border: solid 2px #e1d038;
+}
+.card_r {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  padding: 4px 8px;
+  border: solid 2px #c92424;
 }
 
 .fastest_card {
