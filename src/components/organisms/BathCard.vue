@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="fastest_card" v-if="bath.is_mens_fastest">
+  <div class="card fastest_card" v-if="bath.is_mens_fastest">
     <div class="reflection">
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
@@ -18,7 +18,7 @@ defineProps<{
       {{ bath.introduction_text }}
     </div>
   </div>
-  <div class="card_g" v-else-if="bath.mens_congestion_degree===0">
+  <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
@@ -29,7 +29,7 @@ defineProps<{
       {{ bath.introduction_text }}
     </div>
   </div>
-  <div class="card_y" v-else-if="bath.mens_congestion_degree==1">
+  <div class="card card_y" v-else-if="bath.mens_congestion_degree==1">
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
@@ -40,7 +40,7 @@ defineProps<{
       {{ bath.introduction_text }}
     </div>
   </div>
-  <div class="card_r" v-else>
+  <div class="card card_r" v-else>
     <div>
       <img :src="bath.image_url" class="image" alt=""/>
     </div>
@@ -68,60 +68,19 @@ defineProps<{
 }
 
 .card_g {
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  padding: 4px 8px;
-  border: 4px solid;
-  border-color: #03ca03;
+  border: 4px solid #03ca03;
 }
 .card_y {
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  padding: 4px 8px;
   border: solid 4px #e1d038;
 }
 .card_r {
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  padding: 4px 8px;
   border: solid 4px #c92424;
 }
 
 .fastest_card {
-  width: 150px;
-  height: 150px;
-  cursor: pointer;
-  box-sizing: border-box;
   border: 8px solid;
   border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
   animation: 2s rotate linear infinite;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  padding: 4px 8px;
 }
 
 @keyframes rotate {
@@ -172,8 +131,8 @@ defineProps<{
   81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
   100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
 }
-
 </style>
+
 <style module>
 .explanation {
   color: #707070;

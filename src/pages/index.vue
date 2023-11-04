@@ -6,6 +6,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
   <main-layout>
     <div>
       home
+      <a href="/crowded">デモページへ</a>
     </div>
   </main-layout>
 </template>

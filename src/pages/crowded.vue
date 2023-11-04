@@ -22,13 +22,15 @@ const fetch = () => {
   ).then((res) => {
     messageData.data = res.data.data;
     messageData.isLoaded = true;
-  }).catch((e)=>console.log(e));
+  }).catch((e)=>{
+    messageData.error = e;
+  });
 }
 
 onMounted(() => {
- interval.value = setInterval(() => {
- fetch()
-   }, 5000);
+ //interval.value = setInterval(() => {
+ //fetch()
+ //  }, 5000);
 })
 
 onBeforeUnmount(()=>{
