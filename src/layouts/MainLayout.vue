@@ -124,6 +124,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
 	transform: scale(0.4);
+  will-change: transform;
 }
 
 .x3 {
@@ -138,6 +139,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	-webkit-transform: scale(0.7);
 	-moz-transform: scale(0.7);
 	transform: scale(0.7);
+  will-change: transform;
 }
 
 .x4 {
@@ -152,6 +154,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	-webkit-transform: scale(0.6);
 	-moz-transform: scale(0.6);
 	transform: scale(0.6);
+  will-change: transform;
 }
 
 .x5 {
@@ -166,6 +169,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	-webkit-transform: scale(0.3);
 	-moz-transform: scale(0.3);
 	transform: scale(0.3);
+  will-change: transform;
 }
 
 /* OBJECTS */
@@ -180,6 +184,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	-moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
 	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
 	
+  will-change: transform;
   height: 200px;
 	position: absolute;
 	width: 200px;
@@ -208,5 +213,6 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 	position: absolute;
 	width: 180px;
   z-index: -1000;
+  will-change: transform;
 }
 </style>

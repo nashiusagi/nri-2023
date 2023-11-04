@@ -229,6 +229,7 @@ defineProps<{
   position:relative;
   overflow:hidden;
   -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
  
 .reflection:after {
@@ -240,6 +241,7 @@ defineProps<{
   -webkit-transform: rotate(45deg);
   -webkit-animation: reflection 2s ease-in-out infinite;
   -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
  
 @keyframes reflection {
