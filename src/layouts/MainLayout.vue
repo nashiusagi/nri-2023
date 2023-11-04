@@ -10,16 +10,10 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
     <div :class="$style.main">
       <slot />
       <div :class="$style.bubble_container">
-        <div class="bubble x1"></div>
         <div class="bubble x2"></div>
         <div class="bubble x3"></div>
         <div class="bubble x4"></div>
         <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-        <div class="bubble x10"></div>
       </div>
     </div>
     <footer :class="$style.footer"></footer>
@@ -117,27 +111,13 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 }
 
 /* ANIMATIONS */
-
-.x1 {
-  -webkit-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	
-	left: -5%;
-	top: 5%;
-	
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6);
-	transform: scale(0.6);
-}
-
 .x2 {
   -webkit-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	
-	left: 5%;
-	top: 80%;
+	left: 45%;
+	top: 50%;
 	
 	-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
@@ -158,89 +138,24 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
 }
 
 .x4 {
-  -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	
-	left: 20%;
-	top: 0;
-	
-	-webkit-transform: scale(0.3);
-	-moz-transform: scale(0.3);
-	transform: scale(0.3);
-}
-
-.x5 {
-  -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-	animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
-	
-	left: 30%;
-	top: 50%;
-	
-	-webkit-transform: scale(0.5);
-	-moz-transform: scale(0.5);
-	transform: scale(0.5);
-}
-
-.x6 {
-  -webkit-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	
-	left: 32%;
-	top: 0;
-	
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	transform: scale(0.8);
-}
-
-.x7 {
-  -webkit-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	
-	left: 25%;
-	top: 40%;
-	
-	-webkit-transform: scale(0.4);
-	-moz-transform: scale(0.4);
-	transform: scale(0.4);
-}
-
-.x8 {
-  -webkit-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
-	
-	left: 40%;
-	top: 10%;
-	
-	-webkit-transform: scale(0.3);
-	-moz-transform: scale(0.3);
-	transform: scale(0.3);
-}
-
-.x9 {
   -webkit-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
 	
 	left: 0%;
-	top: 50%;
+	top: 20%;
 	
 	-webkit-transform: scale(0.6);
 	-moz-transform: scale(0.6);
 	transform: scale(0.6);
 }
 
-.x10 {
+.x5 {
   -webkit-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	-moz-animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
 	
-	left: 20%;
+	left: 50%;
 	top: 60%;
 	
 	-webkit-transform: scale(0.3);
