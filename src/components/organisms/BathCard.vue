@@ -77,7 +77,7 @@ defineProps<{
         閉館中 
       </div>
     </div>
-    <div class="card fastest_card" v-else-if="bath.is_mens_fastest">
+    <div class="card fastest_card" v-else-if="bath.is_ladies_fastest">
       <div class="reflection">
         <img :src="bath.image_url" class="image" alt=""/>
       </div>
@@ -88,8 +88,8 @@ defineProps<{
         {{ bath.introduction_text }}
       </div>
     </div>
-    <div class="card card_g" v-else-if="bath.mens_congestion_degree===0">
-      <div>
+    <div class="card card_g" v-else-if="bath.ladies_congestion_degree===0">
+      <div class="reflection">
         <img :src="bath.image_url" class="image" alt=""/>
       </div>
       <div class="name">
@@ -99,7 +99,7 @@ defineProps<{
         {{ bath.introduction_text }}
       </div>
     </div>
-    <div class="card card_y" v-else-if="bath.mens_congestion_degree==1">
+    <div class="card card_y" v-else-if="bath.ladies_congestion_degree==1">
       <div>
         <img :src="bath.image_url" class="image" alt=""/>
       </div>
