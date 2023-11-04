@@ -28,6 +28,7 @@ import TheHeader from "@/components/organisms/TheHeader.vue";
   position: relative;
   box-sizing: border-box;
   min-height: 100vh;
+  -webkit-backface-visibility: hidden;
 }
 .header {
   width: 100%;
