@@ -14,10 +14,10 @@ const messageData: BathesData = reactive({
 const interval = ref()
 
 const fetch = () => {
-  axios.get("/msw/index").then((res) => {
+  axios.get("http://18.179.180.74:3000/api/v1/sentos").then((res) => {
     messageData.data = res.data;
     messageData.isLoaded = true;
-  });
+  }).catch((e)=>console.log(e));
 }
 
 onMounted(() => {
