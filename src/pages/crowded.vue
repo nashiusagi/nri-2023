@@ -13,6 +13,7 @@ const messageData: BathesData = reactive({
 
 const interval = ref()
 
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 const fetch = () => {
   axios.get("http://18.179.180.74:3000/api/v1/sentos").then((res) => {
     messageData.data = res.data;

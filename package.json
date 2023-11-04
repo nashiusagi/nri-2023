@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "VITE_MOCKED_API=true VITE_SERVICE_ENV=dev vite",
+    "dev": "VITE_MOCKED_API=false VITE_SERVICE_ENV=dev vite",
     "build": "vue-tsc && vite build",
     "build:dev": "vue-tsc --noEmit --skipLibCheck && VITE_SERVICE_ENV=dev vite build",
     "build:prod": "vue-tsc --noEmit --skipLibCheck && VITE_SERVICE_ENV=prod vite build",
