@@ -3,7 +3,7 @@ export interface Bath {
   name: string; // 銭湯名
   kana: string; // 銭湯名かな名
   roman: string; // 銭湯名ローマ字名
-  imageUrl: string; // 画像パス
+  image_url: string; // 画像パス
   siteUrl: string; // サイトのURL
   introductionText: string; // サイトの概要文
   mens_congestion_degree: number; // 男湯混雑段階

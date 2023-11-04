@@ -17,7 +17,7 @@ const color = getColor(props.bath.mens_congestion_degree)
 <template>
   <div class="fastest_card" v-if="bath.is_fastest">
     <div class="reflection">
-      <img :src="bath.imageUrl" class="image" alt=""/>
+      <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
       <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
@@ -28,7 +28,7 @@ const color = getColor(props.bath.mens_congestion_degree)
   </div>
   <div class="card" v-else>
     <div>
-      <img :src="bath.imageUrl" class="image" alt=""/>
+      <img :src="bath.image_url" class="image" alt=""/>
     </div>
     <div>
       <a class="post_link" :href="bath.siteUrl" target="_blank" rel="noopener noreferrer">{{ bath.name }}</a>
