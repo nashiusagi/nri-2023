@@ -35,7 +35,7 @@ const fetch = () => {
 onMounted(() => {
   interval.value = setInterval(() => {
   fetch()
-    }, 5000);
+    }, 7000);
 })
 
 onBeforeUnmount(()=>{
