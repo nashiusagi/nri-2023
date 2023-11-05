@@ -14,6 +14,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/crowded",
     component: () => import("@/pages/crowded.vue"),
   },
+  {
+    path: "/:catchAll(.*)",
+    component: () => import("@/pages/404.vue"),
+  },
 ];
 
 export const router: Router = createRouter({
