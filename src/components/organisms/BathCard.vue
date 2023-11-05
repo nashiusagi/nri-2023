@@ -138,6 +138,7 @@ defineProps<{
   padding: 4px 10px;
   border-radius: 13px;
   background-color: #ffffff;
+  position: relative;
 
   img {
     text-align: center;
@@ -217,11 +218,20 @@ defineProps<{
 }
 
 .closed_link {
-  color: #d3d3d3;
+  margin-top: -4.5px;
+  color: #fcf2f2 !important;
+  height: calc( 100% + 4px );
+}
+
+.card a {
   font-size: 16px;
   display: block;
-  height: 100%;
-  line-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  padding-top: 100px;
 }
 
 .reflection{
@@ -231,7 +241,7 @@ defineProps<{
   -webkit-backface-visibility: hidden;
   will-change: transform;
 }
- 
+
 .reflection:after {
   content:"";
   height:100%;
@@ -243,7 +253,7 @@ defineProps<{
   -webkit-backface-visibility: hidden;
   will-change: transform;
 }
- 
+
 @keyframes reflection {
   0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
   80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
